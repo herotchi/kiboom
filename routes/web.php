@@ -2,6 +2,8 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\TopController;
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -13,6 +15,4 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+Route::get('/', [TopController::class, 'top'])->name('top');
