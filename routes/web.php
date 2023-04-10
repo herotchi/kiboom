@@ -3,6 +3,7 @@
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\TopController;
+use App\Http\Controllers\UserController;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +17,5 @@ use App\Http\Controllers\TopController;
 */
 
 Route::get('/', [TopController::class, 'top'])->name('top');
+Route::get('/users/add', [UserController::class, 'add'])->name('users.add');
+Route::post('/users/insert', [UserController::class, 'insert'])->name('users.insert');
