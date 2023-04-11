@@ -230,6 +230,11 @@ return [
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
 
+        // 定数
+        'AuthConsts' => App\Consts\AuthConsts::class,
+        //'TopConsts' => App\Consts\TopConsts::class,
+        'UserConsts' => App\Consts\UserConsts::class,
+        //'PaginationConsts' => App\Consts\PaginationConsts::class,
     ],
 
 ];
