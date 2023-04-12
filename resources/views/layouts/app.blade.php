@@ -17,6 +17,9 @@
             }
         </style>
 
+        <!-- Custom styles -->
+        @stack('no_header')
+
         <!-- Scripts -->
         <script src="{{ asset('js/bootstrap.min.js') }}"></script>
 

@@ -1,7 +1,11 @@
 @extends('layouts.app')
 
+@push('no_header')
+<link href="{{ asset('css/no_header.css') }}" rel="stylesheet">
+@endpush
+
 @section('content')
-<div class="form-add-user">
+<div class="no-header">
     <div class="py-3 text-center">
         <img class="mb-4" src="{{ asset('img/icon.png') }}" alt="" width="57" height="57">
         <h1 class="h3 mb-3 fw-normal">アカウント作成</h1>
@@ -38,7 +42,7 @@
                 <button class="btn btn-primary" type="submit">アカウント作成</button>
             </div>
             <div class="col-5 text-end">
-                <a class="btn btn-secondary" href="" role="button">戻る</a>
+                <a class="btn btn-secondary" href="{{ route('login') }}" role="button">戻る</a>
             </div>
         </div>
     </form>

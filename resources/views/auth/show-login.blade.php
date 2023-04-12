@@ -1,8 +1,12 @@
 @extends('layouts.app')
 
+@push('no_header')
+<link href="{{ asset('css/no_header.css') }}" rel="stylesheet">
+@endpush
+
 @section('content')
-<div class="form-signin">
-    <div class="py-3 text-center">
+<div class="no-header">
+    <div class="text-center">
         <img class="mb-4" src="{{ asset('img/icon.png') }}" alt="" width="57" height="57">
         <h1 class="h3 mb-3 fw-normal">ログイン</h1>
     </div>
@@ -32,4 +36,5 @@
         </div>
     </form>
 </div>
+
 @endsection
