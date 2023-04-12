@@ -18,7 +18,8 @@
                     </ul>
                 </li>
             </ul>
-            <form class="d-flex flex-row-reverse" action="" method="">
+            <form class="d-flex flex-row-reverse" action="{{ route('logout') }}" method="POST">
+                @csrf
                 <button class="btn btn-outline-success" type="submit">ログアウト</button>
             </form>
         </div>
