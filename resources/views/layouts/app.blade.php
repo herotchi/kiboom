@@ -16,8 +16,13 @@
                 font-family: 'Nunito', sans-serif;
             }
         </style>
+
+        <!-- Scripts -->
+        <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+
     </head>
     <body>
+        @include('layouts.navbar')
         <div class="container">
             <main>
                 @yield('content')
