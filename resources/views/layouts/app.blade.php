@@ -22,6 +22,7 @@
 
         <!-- Scripts -->
         <script src="{{ asset('js/bootstrap.min.js') }}"></script>
+        <script src="{{ asset('js/jquery-3.6.4.min.js') }}"></script>
 
     </head>
     <body>

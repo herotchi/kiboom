@@ -10,6 +10,9 @@ use Laravel\Sanctum\HasApiTokens;
 
 use Illuminate\Support\Facades\Hash;
 
+use App\Consts\UserConsts;
+use Illuminate\Support\Facades\Auth;
+
 class User extends Authenticatable
 {
     use HasApiTokens, HasFactory, Notifiable;
@@ -59,5 +62,19 @@ class User extends Authenticatable
         $this->login_id = $data['login_id'];
         $this->password = Hash::make($data['password']);
         $this->save();
+    }
+
+
+    /**
+     * ユーザー名を更新する
+     *
+     * @param array $data
+     * @return void
+     */
+    public function updateUser(array $data)
+    {
+        $user = $this->find(Auth::user()->id);
+        $user->name = $data['name'];
+        $user->save();
     }
 }

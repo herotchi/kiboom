@@ -27,6 +27,7 @@ Route::middleware(['guest'])->group(function () {
 Route::middleware(['auth'])->group(function () {
     Route::get('/', [TopController::class, 'top'])->name('top');
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+    Route::post('/users/update', [UserController::class, 'update'])->name('users.update');
 });
 
 
