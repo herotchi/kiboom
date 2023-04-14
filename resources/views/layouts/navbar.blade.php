@@ -13,7 +13,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">設定</a>
                     <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                        <li><a class="dropdown-item" href="#">ユーザー名変更</a></li>
+                        <li><a class="dropdown-item" data-bs-toggle="modal" href="#usersEdit" role="button">ユーザー名変更</a></li>
                         <li><a class="dropdown-item" href="#">ログイン情報変更</a></li>
                     </ul>
                 </li>
