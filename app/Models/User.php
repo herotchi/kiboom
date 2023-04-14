@@ -77,4 +77,23 @@ class User extends Authenticatable
         $user->name = $data['name'];
         $user->save();
     }
+
+
+    /**
+     * ログイン情報を更新する
+     *
+     * @param array $data
+     * @return void
+     */
+    public function updateLogin(array $data)
+    {
+        $user = $this->find(Auth::user()->id);
+        $user->login_id = $data['login_id'];
+        // パスワードが変更された場合
+        if (strlen($data['password']) > 0) {
+            $user->password = Hash::make($data['password']);
+        }
+        $user->save();
+    }
+
 }

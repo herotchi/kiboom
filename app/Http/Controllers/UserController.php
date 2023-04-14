@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\DB;
 use App\Models\User;
 use App\Http\Requests\User\AddRequest;
 use App\Http\Requests\User\EditRequest;
+use App\Http\Requests\User\LoginRequest;
 
 class UserController extends Controller
 {
@@ -34,5 +35,16 @@ class UserController extends Controller
         });
 
         return redirect()->route('top')->with('msg_success', 'ユーザー名を変更しました。');
+    }
+
+
+    public function login_update(LoginRequest $request)
+    {
+        DB::transaction(function () use($request) {
+            $userModel = new User();
+            $userModel->updateLogin($request->validated());
+        });
+
+        return redirect()->route('top')->with('msg_success', 'ログイン情報を変更しました。');
     }
 }
