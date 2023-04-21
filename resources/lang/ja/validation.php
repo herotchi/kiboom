@@ -163,7 +163,9 @@ return [
         'weather' => '今朝の天気',
         'walk_flg' => '朝散歩',
         'others' => 'その他',
-        'diaries' => '日記',
+        'diary_1' => '日記',
+        'diary_2' => '日記',
+        'diary_3' => '日記',
     ],
 
 ];

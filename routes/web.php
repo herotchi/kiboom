@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\TopController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\PostController;
 
 /*
 |--------------------------------------------------------------------------
@@ -29,6 +30,8 @@ Route::middleware(['auth'])->group(function () {
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
     Route::post('/users/update', [UserController::class, 'update'])->name('users.update');
     Route::post('/users/login_update', [UserController::class, 'login_update'])->name('users.login_update');
+    Route::get('/posts/add', [PostController::class, 'add'])->name('posts.add');
+    Route::post('/posts/insert', [PostController::class, 'insert'])->name('posts.insert');
 });
 
 

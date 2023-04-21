@@ -50,6 +50,12 @@ class User extends Authenticatable
     ];
 
 
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
+
+
     /**
      * ユーザー情報をDBに格納する
      * 
