@@ -1,14 +1,6 @@
 @extends('layouts.app')
 
 @section('content')
-{{--
-<nav aria-label="パンくずリスト">
-    <ol class="breadcrumb">
-        <li class="breadcrumb-item"><a href="{{ route('top') }}">ホーム</a></li>
-        <li class="breadcrumb-item active" aria-current="page">日記投稿</li>
-    </ol>
-</nav>
---}}
 <div class="row justify-content-center g-3">
     <div class="col">
         <div class="card">
@@ -88,7 +80,7 @@
                         </div>
                         <div class="col-12 text-center mt-5">
                             <button class="btn btn-primary w-50" type="submit">投稿する</button>
-                            <button type="button" id="closePostsAddBtn" class="btn btn-secondary" {{--data-bs-dismiss="modal"--}}>閉じる</button>
+                            <a class="btn btn-secondary" href="{{ route('top') }}" role="button">戻る</a>
                         </div>
                     </div>
                 </form>

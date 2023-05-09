@@ -234,6 +234,7 @@ return [
         'AuthConsts' => App\Consts\AuthConsts::class,
         //'TopConsts' => App\Consts\TopConsts::class,
         'UserConsts' => App\Consts\UserConsts::class,
+        'PostConsts' => App\Consts\PostConsts::class,
         //'PaginationConsts' => App\Consts\PaginationConsts::class,
     ],
 
