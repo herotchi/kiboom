@@ -19,6 +19,7 @@
 
         <!-- Custom styles -->
         @stack('no_header')
+        @stack('top')
 
         <!-- Scripts -->
         <script src="{{ asset('js/bootstrap.min.js') }}"></script>
@@ -27,7 +28,7 @@
     </head>
     <body>
         @include('layouts.navbar')
-        <div class="container">
+        <div class="container @if (Auth::check())my-3 @endif">
             <main>
                 @yield('content')
             </main>

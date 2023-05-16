@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Model;
 
 use Illuminate\Support\Facades\Auth;
 use DateTime;
+use App\Consts\PostConsts;
 
 class Post extends Model
 {
@@ -41,11 +42,33 @@ class Post extends Model
     {
         $query = $this::query();
         $query->where('user_id', Auth::user()->id);
-        $list = $query->with('user')->get();
+        $query->orderBy('calendar', 'desc');
+        $list = $query->with('user')->paginate(PostConsts::PAGENATE_LIMIT);
 
         return $list;
     }
 
+
+    /**
+     * 今日すでに日記を書いたかどうかのチェック
+     * 
+     * @return boolean $todayPostedFlg
+     */
+    public function getTodayPostedFlg()
+    {
+        $todayPostedFlg = false;
+        $today = new DateTime();
+        $query = $this::query();
+        $query->where('user_id', Auth::user()->id);
+        $query->where('calendar', $today->format('Y-m-d'));
+        $count = $query->count();
+
+        if($count > 0) {
+            $todayPostedFlg = true;
+        }
+        
+        return $todayPostedFlg;
+    }
 
     /**
      * 日記を投稿し、投稿した日記のIDを取得する

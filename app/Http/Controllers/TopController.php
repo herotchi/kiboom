@@ -15,7 +15,8 @@ class TopController extends Controller
     {
         $postModel = new Post();
         $posts = $postModel->getTopList();
-        //var_dump($posts);
-        return view('top', compact('posts'));
+        $todayPostedFlg = $postModel->getTodayPostedFlg();
+
+        return view('top', compact('posts', 'todayPostedFlg'));
     }
 }

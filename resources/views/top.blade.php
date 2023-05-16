@@ -51,7 +51,7 @@ img.walk_flg {
 <div class="row justify-content-center g-3">
     <div class="col">
         <div class="card">
-            <div class="card-header">最近のセッション</div>
+            <div class="card-header py-3">{{ $posts->links('vendor.pagination.bootstrap-4-number') }}</div>
             <div class="card-body">
                 <div class="list-group">
                     @foreach($posts as $post)
@@ -108,16 +108,19 @@ img.walk_flg {
                     @endforeach
                 </div>
             </div>
+            <div class="card-footer">
+            {{ $posts->links('vendor.pagination.bootstrap-4') }}
+            </div>
         </div>
     </div>
 </div>
 
 
-
+@if(!$todayPostedFlg)
 <div id="postAdd">
     <a href="{{ route('posts.add') }}"><img src="{{ asset('svg/plus-lg.svg')}}"></a>
 </div>
-
+@endif
 
 
 

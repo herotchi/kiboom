@@ -35,4 +35,7 @@ class PostConsts
     // その他
     public const OTHERS_LENGTH_MAX = 400;
 
+    // 1ページにおける最大投稿表示件数
+    public const PAGENATE_LIMIT = 7;
+
 }
