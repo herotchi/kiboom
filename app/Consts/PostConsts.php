@@ -12,7 +12,7 @@ class PostConsts
     public const WEATHER_SUN = 1;
     public const WEATHER_CLOUD = 2;
     public const WEATHER_RAIN = 3;
-    public const WEATHER_SHOW = 4;
+    public const WEATHER_SNOW = 4;
     public const WEATHER_LIST = [
         self::WEATHER_SUN => '晴',
         self::WEATHER_CLOUD => '曇',
@@ -35,4 +35,6 @@ class PostConsts
     // その他
     public const OTHERS_LENGTH_MAX = 400;
 
+    // 1ページにおける最大投稿表示件数
+    public const PAGENATE_LIMIT = 7;
 }

@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 use Illuminate\Support\Facades\Auth;
 use DateTime;
+use App\Consts\PostConsts;
+
 
 class Post extends Model
 {
@@ -34,6 +36,39 @@ class Post extends Model
     public function diaries()
     {
         return $this->hasMany(Diary::class);
+    }
+
+
+    public function getTopList()
+    {
+        $query = $this::query();
+        $query->where('user_id', Auth::user()->id);
+        $query->orderBy('calendar', 'desc');
+        $list = $query->with('user')->paginate(PostConsts::PAGENATE_LIMIT);
+
+        return $list;
+    }
+
+
+    /**
+     * 今日すでに日記を書いたかどうかのチェック
+     * 
+     * @return boolean $todayPostedFlg
+     */
+    public function getTodayPostedFlg()
+    {
+        $todayPostedFlg = false;
+        $today = new DateTime();
+        $query = $this::query();
+        $query->where('user_id', Auth::user()->id);
+        $query->where('calendar', $today->format('Y-m-d'));
+        $count = $query->count();
+
+        if($count > 0) {
+            $todayPostedFlg = true;
+        }
+        
+        return $todayPostedFlg;
     }
 
 
