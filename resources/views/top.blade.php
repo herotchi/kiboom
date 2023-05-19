@@ -126,11 +126,13 @@ img.walk_flg {
 
 
 
+
 <!-- ユーザー名変更モーダルの設定 -->
 @include('users.edit')
 
 <!-- ログイン情報変更モーダルの設定 -->
 @include('users.login')
+
 
 
 @endsection

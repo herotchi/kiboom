@@ -9,6 +9,7 @@ use Illuminate\Support\Facades\Auth;
 use DateTime;
 use App\Consts\PostConsts;
 
+
 class Post extends Model
 {
     use HasFactory;
@@ -69,6 +70,7 @@ class Post extends Model
         
         return $todayPostedFlg;
     }
+
 
     /**
      * 日記を投稿し、投稿した日記のIDを取得する
