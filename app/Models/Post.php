@@ -89,4 +89,15 @@ class Post extends Model
 
         return $this->id;
     }
+
+
+    public function getDetail($id)
+    {
+        $query = $this::query();
+        $query->where('id', $id);
+        $query->where('user_id', Auth::user()->id);
+        $detail = $query->first();
+
+        return $detail;
+    }
 }

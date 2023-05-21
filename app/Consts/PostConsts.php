@@ -17,7 +17,7 @@ class PostConsts
         self::WEATHER_SUN => '晴',
         self::WEATHER_CLOUD => '曇',
         self::WEATHER_RAIN => '雨',
-        self::WEATHER_SHOW => '雪',
+        self::WEATHER_SNOW => '雪',
     ];
 
     // 朝散歩の有無

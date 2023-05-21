@@ -55,7 +55,7 @@ img.walk_flg {
             <div class="card-body">
                 <div class="list-group">
                     @foreach($posts as $post)
-                    <a href="{{ $post->user_id }}" class="list-group-item list-group-item-action">
+                    <a href="{{ route('posts.detail', ['id' => $post->id]) }}" class="list-group-item list-group-item-action">
                         <div class="row">
                             <div class="col-2 small position-relative bg-gradient rounded-circle position-relative 
                                 @if($post->point >= 90)
