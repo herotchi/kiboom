@@ -30,7 +30,7 @@ class PostConsts
 
     // 日記
     public const DIARY_LENGTH_MIN = 6;
-    public const DIARY_LENGTH_MAX = 100; 
+    public const DIARY_LENGTH_MAX = 100;
 
     // その他
     public const OTHERS_LENGTH_MAX = 400;

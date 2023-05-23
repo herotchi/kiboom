@@ -96,10 +96,14 @@ img.walk_flg {
                                     @endif
                                     <span class="float-end">{{ $post->calendar->format('Y/m/d') }}</span>
                                 </p>
-                                @foreach($post->diaries as $diary)
-                                <p class="mb-1">・{{ $diary->content }}</p>
-                                @endforeach
-                                @if ($post->others) 
+                                <p class="mb-1">・{{ $post->diary_1 }}</p>
+                                @if (strlen($post->diary_2) > 0) 
+                                <p class="mb-1">・{{ $post->diary_2 }}</p>
+                                @endif
+                                @if (strlen($post->diary_3) > 0) 
+                                <p class="mb-1">・{{ $post->diary_3 }}</p>
+                                @endif
+                                @if (strlen($post->others) > 0) 
                                 <p>{{ $post->others }}</p>
                                 @endif
                             </div>
