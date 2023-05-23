@@ -23,9 +23,13 @@
                     </li>
                     <li class="list-group-item">
                         <h5>日記</h5>
-                            @foreach ($detail->diaries as $diary)
-                            <p>・{{ $diary->content }}</p>
-                            @endforeach
+                        <p>・{{ $detail->diary_1 }}</p>
+                        @if (strlen($detail->diary_2) > 0)
+                        <p>・{{ $detail->diary_2 }}</p>
+                        @endif
+                        @if (strlen($detail->diary_3) > 0)
+                        <p>・{{ $detail->diary_3 }}</p>
+                        @endif
                     </li>
                     <li class="list-group-item">
                         <h5>その他</h5>
@@ -36,7 +40,7 @@
             
             <div class="card-footer">
                 <div class="col-12 text-center my-2">
-                    <a class="btn btn-primary w-50" href="{{ route('top', ['id' => $detail->id]) }}"
+                    <a class="btn btn-primary w-50" href="{{ route('posts.edit', ['id' => $detail->id]) }}"
                         role="button">編集する
                     </a>
                     <a class="btn btn-secondary" href="{{ route('top') }}" role="button">戻る</a>

@@ -24,18 +24,15 @@ class Post extends Model
         'point',
         'weather',
         'walk_flg',
+        'diary_1',
+        'diary_2',
+        'diary_3',
         'others',
     ];
 
     public function user()
     {
         return $this->belongsTo(User::class);
-    }
-
-
-    public function diaries()
-    {
-        return $this->hasMany(Diary::class);
     }
 
 
@@ -76,7 +73,6 @@ class Post extends Model
      * 日記を投稿し、投稿した日記のIDを取得する
      * 
      * @param array $data
-     * @return int $this->id
      * 
      */
     public function insertPost(array $data)
@@ -86,8 +82,6 @@ class Post extends Model
         $this->calendar = $today->format('Y-m-d');
         $this->fill($data);
         $this->save();
-
-        return $this->id;
     }
 
 
@@ -99,5 +93,12 @@ class Post extends Model
         $detail = $query->first();
 
         return $detail;
+    }
+
+
+    public function updatePost(array $data)
+    {
+        $post = $this::find($data['id']);
+        $post->fill($data)->save();
     }
 }

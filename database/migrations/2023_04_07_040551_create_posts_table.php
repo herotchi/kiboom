@@ -19,6 +19,9 @@ class CreatePostsTable extends Migration
             $table->integer('point')->unsigned();	            // 起床時の気分
             $table->tinyInteger('weather')->unsigned();         // 起床時の天気
             $table->tinyInteger('walk_flg')->unsigned();        // 朝散歩の有無
+            $table->string('diary_1', 100);					    // 日記1
+            $table->string('diary_2', 100)->nullable();			// 日記2
+            $table->string('diary_3', 100)->nullable();			// 日記3
             $table->text('others')->nullable();					// その他
             $table->date('calendar');				            // 日付 
             $table->datetimeTz('created_at');
