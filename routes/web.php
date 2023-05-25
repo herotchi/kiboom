@@ -18,6 +18,7 @@ use App\Http\Controllers\PostController;
 |
 */
 
+Route::get('/terms_of_use', [TopController::class, 'terms_of_use'])->name('terms_of_use');
 Route::get('/privacy_policy', [TopController::class, 'privacy_policy'])->name('privacy_policy');
 
 Route::middleware(['guest'])->group(function () {

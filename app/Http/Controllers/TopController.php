@@ -20,6 +20,13 @@ class TopController extends Controller
         return view('top', compact('posts', 'todayPostedFlg'));
     }
 
+
+    public function terms_of_use()
+    {
+        return view('terms_of_use');
+    }
+
+
     public function privacy_policy()
     {
         return view('privacy_policy');

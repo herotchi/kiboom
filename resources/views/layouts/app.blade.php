@@ -34,7 +34,10 @@
             <main>
                 @yield('content')
             </main>
+            @include('layouts.footer')
         </div>
+        @if (Auth::check())
         @include('layouts.flash')
+        @endif
     </body>
 </html>

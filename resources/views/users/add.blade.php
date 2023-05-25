@@ -60,6 +60,8 @@
         </div>
     </form>
 </div>
+
+<!-- モーダルの設定 -->
 <div class="modal fade" id="user_policy_modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="user_policy_modal" aria-hidden="true">
     <div class="modal-dialog modal-lg modal-dialog-centered">
@@ -71,7 +73,7 @@
                 @include('layouts.terms_of_use_block')
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal" data-bs-target="#user_policy_modal"
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
                     onclick="userPolicy()">閉じる</button>
             </div>
         </div>
