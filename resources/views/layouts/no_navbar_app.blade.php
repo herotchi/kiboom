@@ -11,7 +11,6 @@
 
         <!-- Styles -->
         <link href="{{ asset('css/bootstrap.min.css') }}" rel="stylesheet">
-        <link href="{{ asset('css/toastr.min.css') }}" rel="stylesheet">
         <style>
             body {
                 font-family: 'Nunito', sans-serif;
@@ -19,25 +18,16 @@
         </style>
 
         <!-- Custom styles -->
-        @stack('no_header')
-        @stack('top')
 
         <!-- Scripts -->
         <script src="{{ asset('js/bootstrap.min.js') }}"></script>
-        <script src="{{ asset('js/jquery-3.6.4.min.js') }}"></script>
-        <script src="{{ asset('js/toastr.min.js') }}"></script>
 
     </head>
     <body>
-        @include('layouts.navbar')
-        <div class="container @if (Auth::check())my-3 @endif">
+        <div class="container my-3">
             <main>
                 @yield('content')
             </main>
-            @include('layouts.footer')
         </div>
-        @if (Auth::check())
-        @include('layouts.flash')
-        @endif
     </body>
 </html>
