@@ -60,6 +60,7 @@
         </div>
     </form>
 </div>
+
 <!-- モーダルの設定 -->
 <div class="modal fade" id="user_policy_modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
     aria-labelledby="user_policy_modal" aria-hidden="true">
