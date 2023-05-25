@@ -19,4 +19,9 @@ class TopController extends Controller
 
         return view('top', compact('posts', 'todayPostedFlg'));
     }
+
+    public function privacy_policy()
+    {
+        return view('privacy_policy');
+    }
 }
