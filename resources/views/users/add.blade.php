@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', 'アカウント作成')
 @push('no_header')
 <link href="{{ asset('css/no_header.css') }}" rel="stylesheet">
 @endpush

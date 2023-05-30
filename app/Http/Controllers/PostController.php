@@ -23,8 +23,10 @@ class PostController extends Controller
         // 同じ日に2度投稿できない
         $today = new DateTime();
         $validator = Validator::make(
-            ['calender' => $today->format('Y-m-d')],
-            ['calender' => 'unique:posts,calendar']
+            ['calendar' => $today->format('Y-m-d')],
+            ['calendar' => Rule::unique('posts', 'calendar')->where(function ($query) {
+                return $query->where('user_id', Auth::user()->id);
+            })]
         );
 
         if ($validator->fails()) {
@@ -40,8 +42,10 @@ class PostController extends Controller
         // 同じ日に2度投稿できない
         $today = new DateTime();
         $validator = Validator::make(
-            ['calender' => $today->format('Y-m-d')],
-            ['calender' => 'unique:posts,calendar']
+            ['calendar' => $today->format('Y-m-d')],
+            ['calendar' => Rule::unique('posts', 'calendar')->where(function ($query) {
+                return $query->where('user_id', Auth::user()->id);
+            })]
         );
 
         if ($validator->fails()) {

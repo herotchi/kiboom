@@ -1,10 +1,7 @@
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
-        <title>Laravel</title>
+        @include('layouts.meta', ['noindexFlg' => false])
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -34,10 +31,10 @@
             <main>
                 @yield('content')
             </main>
+            @if (Auth::check())
             @include('layouts.footer')
+            @endif
         </div>
-        @if (Auth::check())
         @include('layouts.flash')
-        @endif
     </body>
 </html>

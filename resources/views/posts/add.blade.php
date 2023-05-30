@@ -1,10 +1,10 @@
 @extends('layouts.app')
-
+@section('title', '日記投稿')
 @section('content')
 <div class="row justify-content-center g-3">
     <div class="col">
         <div class="card">
-            <div class="card-header">セッション募集</div>
+            <div class="card-header">日記投稿</div>
             <div class="card-body">
                 <form method="POST" action="{{ route('posts.insert') }}" novalidate>
                     @csrf
