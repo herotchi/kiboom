@@ -39,7 +39,7 @@
             </div>
             
             <div class="card-footer">
-                <div class="col-12 text-center my-2">
+                <div class="text-center my-3">
                     <a class="btn btn-primary w-50" href="{{ route('posts.edit', ['id' => $detail->id]) }}"
                         role="button">編集する
                     </a>

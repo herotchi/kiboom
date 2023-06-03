@@ -4,10 +4,10 @@
 <div class="row justify-content-center g-3">
     <div class="col">
         <div class="card">
-            <div class="card-header">セッション募集</div>
-            <div class="card-body">
-                <form method="POST" action="{{ route('posts.update') }}" novalidate>
-                    @csrf
+            <form method="POST" action="{{ route('posts.update') }}" novalidate>
+                @csrf
+                <div class="card-header"><h4 class="my-2">{{ $detail->calendar->format('Y年m月d日') }}投稿の編集</h4></div>
+                <div class="card-body">
                     <input type="hidden" name="id" id="id" value="{{ $detail->id }}">
                     <div class="row g-3">
                         <label for="point" class="form-label">今朝の気分
@@ -79,14 +79,29 @@
                                 name="others" rows="3">{{ old('others', $detail->others) }}</textarea>
                             <div class="invalid-feedback">{{ $errors->first('others') }}</div>
                         </div>
-                        <div class="col-12 text-center mt-5">
-                            <button class="btn btn-primary w-50" type="submit">編集する</button>
-                            <a class="btn btn-secondary" href="{{ route('top') }}" role="button">戻る</a>
-                        </div>
                     </div>
-                </form>
-            </div>
+                </div>
+                <div class="card-footer">
+                    <div class="text-center my-3">
+                        <button class="btn btn-primary w-50" type="submit">編集する</button>
+                        <a class="btn btn-secondary" href="{{ route('top') }}" role="button">戻る</a>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 </div>
+<script>
+    // 今朝の気分の点数を表示する
+    var inputElement = document.getElementById('point');
+    var pointText = document.getElementById('point_value');
+    var getRangeValue = function (inputElement, pointText) {
+        return function() {
+            pointText.innerHTML = inputElement.value + "点";
+            console.log(inputElement.value);
+        }
+    }
+    inputElement.addEventListener('input', getRangeValue(inputElement, pointText));
+    window.addEventListener('load', getRangeValue(inputElement, pointText));
+</script>
 @endsection

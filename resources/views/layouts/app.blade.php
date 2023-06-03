@@ -33,6 +33,10 @@
             </main>
             @if (Auth::check())
             @include('layouts.footer')
+            <!-- ユーザー名変更モーダルの設定 -->
+            @include('users.edit')
+            <!-- ログイン情報変更モーダルの設定 -->
+            @include('users.login')
             @endif
         </div>
         @include('layouts.flash')
