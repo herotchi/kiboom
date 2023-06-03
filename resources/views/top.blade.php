@@ -104,7 +104,7 @@ img.walk_flg {
                                 <p class="mb-1">・{{ $post->diary_3 }}</p>
                                 @endif
                                 @if (strlen($post->others) > 0) 
-                                <p>{{ $post->others }}</p>
+                                <p class="text-truncate">{{ $post->others }}</p>
                                 @endif
                             </div>
                         </div>
@@ -119,24 +119,10 @@ img.walk_flg {
     </div>
 </div>
 
-
 @if(!$todayPostedFlg)
 <div id="postAdd">
     <a href="{{ route('posts.add') }}"><img src="{{ asset('svg/plus-lg.svg')}}"></a>
 </div>
 @endif
-
-
-
-
-
-
-<!-- ユーザー名変更モーダルの設定 -->
-@include('users.edit')
-
-<!-- ログイン情報変更モーダルの設定 -->
-@include('users.login')
-
-
 
 @endsection

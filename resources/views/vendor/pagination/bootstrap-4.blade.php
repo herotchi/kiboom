@@ -1,6 +1,6 @@
 @if ($paginator->hasPages())
     <nav>
-        <ul class="pagination pagination-lg justify-content-center mt-3">
+        <ul class="pagination pagination-lg justify-content-center my-3">
 
             {{-- First Page Link --}}
             @if ($paginator->onFirstPage())
