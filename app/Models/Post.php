@@ -7,6 +7,8 @@ use Illuminate\Database\Eloquent\Model;
 
 use Illuminate\Support\Facades\Auth;
 use DateTime;
+use App\Consts\PostConsts;
+
 
 class Post extends Model
 {
@@ -22,6 +24,9 @@ class Post extends Model
         'point',
         'weather',
         'walk_flg',
+        'diary_1',
+        'diary_2',
+        'diary_3',
         'others',
     ];
 
@@ -31,9 +36,36 @@ class Post extends Model
     }
 
 
-    public function diaries()
+    public function getTopList()
     {
-        return $this->hasMany(Diary::class);
+        $query = $this::query();
+        $query->where('user_id', Auth::user()->id);
+        $query->orderBy('calendar', 'desc');
+        $list = $query->with('user')->paginate(PostConsts::PAGENATE_LIMIT);
+
+        return $list;
+    }
+
+
+    /**
+     * 今日すでに日記を書いたかどうかのチェック
+     * 
+     * @return boolean $todayPostedFlg
+     */
+    public function getTodayPostedFlg()
+    {
+        $todayPostedFlg = false;
+        $today = new DateTime();
+        $query = $this::query();
+        $query->where('user_id', Auth::user()->id);
+        $query->where('calendar', $today->format('Y-m-d'));
+        $count = $query->count();
+
+        if($count > 0) {
+            $todayPostedFlg = true;
+        }
+        
+        return $todayPostedFlg;
     }
 
 
@@ -41,7 +73,6 @@ class Post extends Model
      * 日記を投稿し、投稿した日記のIDを取得する
      * 
      * @param array $data
-     * @return int $this->id
      * 
      */
     public function insertPost(array $data)
@@ -51,7 +82,23 @@ class Post extends Model
         $this->calendar = $today->format('Y-m-d');
         $this->fill($data);
         $this->save();
+    }
 
-        return $this->id;
+
+    public function getDetail($id)
+    {
+        $query = $this::query();
+        $query->where('id', $id);
+        $query->where('user_id', Auth::user()->id);
+        $detail = $query->first();
+
+        return $detail;
+    }
+
+
+    public function updatePost(array $data)
+    {
+        $post = $this::find($data['id']);
+        $post->fill($data)->save();
     }
 }

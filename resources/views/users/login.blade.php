@@ -35,7 +35,7 @@
                     </div>
                 </div>
                 <div class="modal-footer">
-                    <div class="col-12 text-center">
+                    <div class="col-12 text-center my-3">
                         <button class="btn btn-primary w-50" type="submit">更新する</button>
                         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">閉じる</button>
                     </div>

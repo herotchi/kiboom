@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', 'アカウント作成')
 @push('no_header')
 <link href="{{ asset('css/no_header.css') }}" rel="stylesheet">
 @endpush
@@ -7,7 +7,7 @@
 @section('content')
 <div class="no-header">
     <div class="py-3 text-center">
-        <img class="mb-4" src="{{ asset('img/icon.png') }}" alt="" width="57" height="57">
+        <img class="mb-4" src="{{ asset('img/kiboom.png') }}" alt="" width="57" height="57">
         <h1 class="h3 mb-3 fw-normal">アカウント作成</h1>
     </div>
     <form method="POST" action="{{ route('users.insert') }}" novalidate>
@@ -38,6 +38,19 @@
                     name="password_confirmation" placeholder="パスワード確認" required>
                 <div class="invalid-feedback">{{ $errors->first('password_confirmation') }}</div>
             </div>
+            <div class="col-12">
+                <div class="form-check">
+                    <input type="checkbox" id="user_policy"
+                        class="form-check-input text-center{{ $errors->has('user_policy') ? ' is-invalid' : '' }}"
+                        name="user_policy" value="yes" {{ old('user_policy') ? 'checked' : 'disabled="disabled"' }} 
+                        required>
+                    <label class="form-check-label" for="user_policy">
+                        <span class="text-info text-decoration-underline" data-bs-toggle="modal"
+                            data-bs-target="#user_policy_modal">利用規約</span>に同意する
+                    </label>
+                    <div class="invalid-feedback">{{ $errors->first('user_policy') }}</div>
+                </div>
+            </div>
             <div class="col-7">
                 <button class="btn btn-primary" type="submit">アカウント作成</button>
             </div>
@@ -46,6 +59,29 @@
             </div>
         </div>
     </form>
-
 </div>
+
+<!-- モーダルの設定 -->
+<div class="modal fade" id="user_policy_modal" data-bs-backdrop="static" data-bs-keyboard="false" tabindex="-1"
+    aria-labelledby="user_policy_modal" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content text-start">
+            <div class="modal-header">
+                <h2 class="modal-title" id="user_policy_modal">利用規約</h2>
+            </div>
+            <div class="modal-body">
+                @include('layouts.terms_of_use_block')
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal"
+                    onclick="userPolicy()">閉じる</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script type="text/javascript">
+    function userPolicy() {
+        $('input[name="user_policy"]').prop("disabled", false);
+    }
+</script>
 @endsection

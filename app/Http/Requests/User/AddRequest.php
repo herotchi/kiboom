@@ -39,6 +39,7 @@ class AddRequest extends FormRequest
             'login_id'  => ['bail', 'required', 'string', $this->alphaDashJp, 'min:' . UserConsts::LOGIN_ID_LENGTH_MIN, 'max:' . UserConsts::LOGIN_ID_LENGTH_MAX, 'unique:users,login_id'],
             'password'  => ['bail', 'required', 'string', $this->alphaDashJp, 'min:' . UserConsts::PASSWORD_LENGTH_MIN, 'max:' . UserConsts::PASSWORD_LENGTH_MAX, 'confirmed'],
             'password_confirmation'  => 'bail|required',
+            'user_policy'  => 'bail|required|accepted',
         ];
     }
 }

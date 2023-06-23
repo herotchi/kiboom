@@ -12,12 +12,12 @@ class PostConsts
     public const WEATHER_SUN = 1;
     public const WEATHER_CLOUD = 2;
     public const WEATHER_RAIN = 3;
-    public const WEATHER_SHOW = 4;
+    public const WEATHER_SNOW = 4;
     public const WEATHER_LIST = [
         self::WEATHER_SUN => '晴',
         self::WEATHER_CLOUD => '曇',
         self::WEATHER_RAIN => '雨',
-        self::WEATHER_SHOW => '雪',
+        self::WEATHER_SNOW => '雪',
     ];
 
     // 朝散歩の有無
@@ -30,9 +30,11 @@ class PostConsts
 
     // 日記
     public const DIARY_LENGTH_MIN = 6;
-    public const DIARY_LENGTH_MAX = 100; 
+    public const DIARY_LENGTH_MAX = 100;
 
     // その他
     public const OTHERS_LENGTH_MAX = 400;
 
+    // 1ページにおける最大投稿表示件数
+    public const PAGENATE_LIMIT = 7;
 }

@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('title', __('ログイン'))
 @push('no_header')
 <link href="{{ asset('css/no_header.css') }}" rel="stylesheet">
 @endpush
@@ -7,7 +7,7 @@
 @section('content')
 <div class="no-header">
     <div class="text-center">
-        <img class="mb-4" src="{{ asset('img/icon.png') }}" alt="" width="57" height="57">
+        <img class="mb-4" src="{{ asset('img/kiboom.png') }}" alt="" width="57" height="57">
         <h1 class="h3 mb-3 fw-normal">ログイン</h1>
     </div>
     <form method="POST" action="{{ route('login') }}" novalidate>

@@ -18,9 +18,13 @@ use App\Http\Controllers\PostController;
 |
 */
 
+Route::get('/terms_of_use', [TopController::class, 'terms_of_use'])->name('terms_of_use');
+Route::get('/privacy_policy', [TopController::class, 'privacy_policy'])->name('privacy_policy');
+
 Route::middleware(['guest'])->group(function () {
     Route::get('/login', [AuthController::class, 'showLogin'])->name('show_login');
     Route::post('/login', [AuthController::class, 'login'])->name('login');
+
     Route::get('/users/add', [UserController::class, 'add'])->name('users.add');
     Route::post('/users/insert', [UserController::class, 'insert'])->name('users.insert');
 });
@@ -28,10 +32,16 @@ Route::middleware(['guest'])->group(function () {
 Route::middleware(['auth'])->group(function () {
     Route::get('/', [TopController::class, 'top'])->name('top');
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
+
     Route::post('/users/update', [UserController::class, 'update'])->name('users.update');
     Route::post('/users/login_update', [UserController::class, 'login_update'])->name('users.login_update');
+
     Route::get('/posts/add', [PostController::class, 'add'])->name('posts.add');
     Route::post('/posts/insert', [PostController::class, 'insert'])->name('posts.insert');
+    Route::get('/posts/{id}', [PostController::class, 'detail'])->name('posts.detail');
+    Route::get('/posts/edit/{id}', [PostController::class, 'edit'])->name('posts.edit');
+    Route::post('/posts/update', [PostController::class, 'update'])->name('posts.update');
+
 });
 
 
